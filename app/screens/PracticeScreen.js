@@ -88,6 +88,6 @@ const styles = StyleSheet.create({
     alignItems: "center", // Secondary axis
     justifyContent: "center", // Primary axis
     flexWrap: "wrap",
-    alignContent: "center",
+    alignContent: "center", // Only on multiline
   },
 });
