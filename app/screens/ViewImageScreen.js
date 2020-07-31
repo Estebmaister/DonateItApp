@@ -11,7 +11,7 @@ export default function ViewImageScreen() {
       <Image
         resizeMode="contain"
         style={styles.image}
-        source={require("../assets/splash.png")}
+        source={require("../assets/app.png")}
       ></Image>
       <Text></Text>
     </View>

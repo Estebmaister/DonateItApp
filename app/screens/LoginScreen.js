@@ -13,6 +13,7 @@ import colors from "../config/colors";
 
 export default function RegisterScreen() {
   const singUp = () => Actions.register();
+  const casesView = () => Actions.menu();
   let password;
 
   return (
@@ -39,7 +40,7 @@ export default function RegisterScreen() {
         ref={(input) => (password = input)}
       />
 
-      <TouchableOpacity style={styles.btn}>
+      <TouchableOpacity style={styles.btn} onPress={casesView}>
         <Text style={styles.btnText}>Sign In</Text>
       </TouchableOpacity>
 

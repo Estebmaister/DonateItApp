@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "DoneWithIt",
-    "slug": "DoneWithIt",
-    "version": "1.0.0",
+    "name": "DonateIt",
+    "slug": "donateit",
+    "version": "1.0.1",
     "orientation": "default",
-    "icon": "./app/assets/icon.png",
+    "icon": "./app/assets/app.png",
     "splash": {
       "image": "./app/assets/splash.png",
       "resizeMode": "contain",
@@ -15,10 +15,18 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
+      "bundleIdentifier": "com.process.donateit",
+      "buildNumber": "1.0.1",
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.process.donateit",
+      "versionCode": 1.0
     },
     "web": {
       "favicon": "./app/assets/favicon.png"
-    }
+    },
+    "description": "An application front-end design for donate to several cases",
+    "githubUrl": "https://github.com/Estebmaister/DonateItApp"
   }
 }

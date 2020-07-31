@@ -13,6 +13,7 @@ import colors from "../config/colors";
 
 export default function RegisterScreen() {
   const singIn = () => Actions.pop();
+  const casesView = () => Actions.menu();
   let email, password, repeatPassword;
 
   return (
@@ -58,7 +59,7 @@ export default function RegisterScreen() {
         ref={(input) => (repeatPassword = input)}
       />
 
-      <TouchableOpacity style={styles.btn}>
+      <TouchableOpacity style={styles.btn} onPress={casesView}>
         <Text style={styles.btnText}>Sign Up</Text>
       </TouchableOpacity>
 
