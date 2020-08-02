@@ -5,27 +5,55 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "test": "node ./node_modules/jest/bin/jest.js --watch --coverage=false --changedSince=origin/master",
+    "testDebug": "node ./node_modules/jest/bin/jest.js -o --watch --coverage=false",
+    "testFinal": "node ./node_modules/jest/bin/jest.js",
+    "updateSnapshots": "node ./node_modules/jest/bin/jest.js -u --coverage=false"
   },
   "dependencies": {
     "@react-native-community/hooks": "^2.6.0",
+    "@react-native-community/masked-view": "0.1.10",
+    "@react-navigation/native": "^5.7.2",
+    "@react-navigation/stack": "^5.8.0",
     "dot-prop": "^5.2.0",
-    "expo": "~38.0.8",
+    "expo": "^38.0.9",
     "expo-cli": "^3.23.0",
     "expo-status-bar": "^1.0.2",
-    "react": "~16.11.0",
-    "react-dom": "~16.11.0",
+    "react": "~16.13.1",
+    "react-dom": "~16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
     "react-native-gesture-handler": "~1.6.0",
     "react-native-reanimated": "~1.9.0",
     "react-native-router-flux": "^4.2.0",
-    "react-native-screens": "^2.9.0",
+    "react-native-safe-area-context": "~3.0.7",
+    "react-native-screens": "~2.9.0",
     "react-native-web": "~0.11.7"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
     "babel-preset-expo": "~8.1.0",
-    "logkitty": "^0.7.1"
+    "logkitty": "^0.7.1",
+    "babel-jest": "~26.1.0",
+    "jest": "~26.1.0",
+    "jest-expo": "^38.0.2",
+    "react-test-renderer": "~16.13.1"
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|@sentry/.*)"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/*.style.{js,jsx}",
+      "!**/coverage/**",
+      "!**/node_modules/**",
+      "!**/web-build/**",
+      "!**/babel.config.js",
+      "!**/jest.setup.js"
+    ]
   },
   "private": true
 }

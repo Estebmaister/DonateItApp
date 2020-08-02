@@ -10,6 +10,7 @@ import FeedScreen from "../screens/FeedScreen";
 import DonationsScreen from "../screens/DonationsScreen";
 import colors from "../config/colors";
 import metrics from "../config/metrics";
+import fonts from "../config/fonts";
 
 const TabIcon = ({ selected, title }) => {
   return <Text style={{ color: selected ? "red" : "black" }}>{title}</Text>;
@@ -20,7 +21,7 @@ TODO: Change the navigation to pure react native
 */
 const Routes = () => (
   <Router>
-    <Stack key="root" hideNavBar>
+    <Stack key="root" hideNavBar={false}>
       {/* Main */}
       <Scene key="home" component={HomeScreen} title="Home" />
 
@@ -28,29 +29,32 @@ const Routes = () => (
       <Scene key="login" component={LoginScreen} title="Login" />
       <Scene key="register" component={RegisterScreen} title="Register" />
 
-      {/* renderLeftButton={NavItems.hamburgerButton} 
+      {/* } 
            
           titleStyle={Styles.title} 
-          leftButtonIconStyle={Styles.leftButton} 
-          rightButtonTextStyle={Styles.rightButton} >
       */}
 
       {/* Tabs */}
-      <Scene initial key="menu" title="Menu" hideNavBar tabs>
+      <Scene key="menu" hideNavBar tabs>
         <Scene
-          tabBarLabel={""}
+          // tabBarLabel={""}
           initial
           key="cases"
           component={CasesListScreen}
           title="Cases"
-          hideNavBar
+          hideNavBar={false}
         />
-        <Scene key="feed" component={FeedScreen} title="Feed" hideNavBar />
+        <Scene
+          key="feed"
+          component={FeedScreen}
+          title="Feed"
+          hideNavBar={false}
+        />
         <Scene
           key="donations"
           component={DonationsScreen}
           title="Donations"
-          hideNavBar
+          hideNavBar={false}
         />
       </Scene>
     </Stack>
@@ -73,17 +77,6 @@ const styles = StyleSheet.create({
     fontSize: fonts.medium,
     fontWeight: "bold",
   },
-  container: {
-    flex: 1,
-    justifyContent: "flex-start",
-    alignItems: "center",
-    width: "90%",
-    marginTop: 20,
-    marginHorizontal: "5%",
-    padding: 20,
-    backgroundColor: colors.dark,
-    borderRadius: 4,
-  },
   description: {
     paddingTop: 30,
     color: colors.light,
@@ -97,23 +90,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginRight: 2,
   },
-  imageContainer: {
-    width: "30%",
-  },
-  titleContainer: {
-    flex: 1,
-    width: "100%",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
   title: {
     flex: 1,
-  },
-  titleText: {
-    color: colors.light,
-    fontSize: fonts.large,
-    textAlign: "center",
   },
 });
 
