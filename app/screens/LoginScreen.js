@@ -10,6 +10,7 @@ import {
 import { Actions } from "react-native-router-flux";
 
 import colors from "../config/colors";
+import fonts from "../config/fonts";
 
 export default function RegisterScreen() {
   const singUp = () => Actions.register();
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   header: {
-    fontSize: 24,
+    fontSize: fonts.large,
     color: colors.light,
     paddingBottom: 10,
     marginBottom: 40,
@@ -90,14 +91,15 @@ const styles = StyleSheet.create({
   },
   signText: {
     color: colors.lightSoft,
-    fontSize: 16,
+    fontSize: fonts.small,
   },
   signButton: {
     color: colors.light,
-    fontSize: 16,
+    fontSize: fonts.small,
     fontWeight: "500",
   },
   textInput: {
+    fontSize: fonts.xSmall,
     height: 40,
     marginBottom: 30,
     color: colors.light,
