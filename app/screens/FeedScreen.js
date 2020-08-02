@@ -14,9 +14,9 @@ import fonts from "../config/fonts";
 import metrics from "../config/metrics";
 import Nav from "../components/Nav";
 import Title from "../components/Title";
-import Case from "../components/Case";
+import Feed from "../components/Feed";
 
-const CasesListScreen = () => {
+export default function FeedScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -24,33 +24,32 @@ const CasesListScreen = () => {
         style="auto"
         barStyle={"dark-content"}
       />
-      {/* <ScrollView style={styles.scrollView} decelerationRate={0.92}> */}
       <Title title={"Feed"} />
       <FlatList
         style={styles.scrollView}
-        data={cases}
-        keyExtractor={(item, index) => item.title + ++index}
+        data={user}
+        keyExtractor={(item, index) => item.case + ++index}
         renderItem={({ item, index }) => (
-          <Case
-            title={item.title + ++index}
-            description={item.description}
-            image={item.image}
+          <Feed
+            index={index}
+            name={item.name}
+            case={item.case + ++index}
+            date={item.date}
           />
         )}
       />
-      {/* </ScrollView> */}
-      <Nav />
+      {/* <Nav /> */}
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 10,
     flex: 1,
     backgroundColor: colors.dark,
   },
   scrollView: {
-    // marginBottom: metrics.navHeight * 1.1,
     marginTop: -metrics.titleHeight / 3.5,
   },
   text: {
@@ -58,37 +57,40 @@ const styles = StyleSheet.create({
   },
 });
 
-const cases = [
+const user = [
   {
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    title: "Case number ",
-    image: require("../assets/app.png"),
+    name: "Jean Chayeb",
+    case: "Case #",
+    date: "Wed 4",
   },
   {
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    title: "Case number ",
-    image: require("../assets/app.png"),
+    name: "Esteban Camargo",
+    case: "Case #",
+    date: "Wed 11",
   },
   {
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    title: "Case number ",
-    image: require("../assets/app.png"),
+    name: "Example One",
+    case: "Case #",
+    date: "Wed 18",
   },
   {
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    title: "Case number ",
-    image: require("../assets/app.png"),
+    name: "Example Two",
+    case: "Case #",
+    date: "Wed 25",
   },
   {
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    title: "Case number ",
-    image: require("../assets/app.png"),
+    name: "Another Person",
+    case: "Case #",
+    date: "Wed 1",
+  },
+  {
+    name: "Example Three",
+    case: "Case #",
+    date: "Wed 8",
+  },
+  {
+    name: "Example Four",
+    case: "Case #",
+    date: "Wed 15",
   },
 ];
-
-export default CasesListScreen;
