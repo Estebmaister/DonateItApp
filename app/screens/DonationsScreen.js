@@ -6,52 +6,76 @@ import {
   ScrollView,
   StatusBar,
   Text,
+  View,
 } from "react-native";
-import Constants from "expo-constants";
 
 import colors from "../config/colors";
 import fonts from "../config/fonts";
 import metrics from "../config/metrics";
 import Nav from "../components/Nav";
 import Title from "../components/Title";
-import Case from "../components/Case";
+import Donation from "../components/Donation";
 
-const CasesListScreen = () => {
+const DonationsList = () => {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <StatusBar
         backgroundColor={colors.primary}
         style="auto"
         barStyle={"dark-content"}
       />
       {/* <ScrollView style={styles.scrollView} decelerationRate={0.92}> */}
-      <Title title={"Donations"} />
+      <Title title={"My Donations"} />
+      <View style={styles.donationBar}>
+        <Text style={styles.textBar}>Date</Text>
+        <Text style={styles.textBar}>Case</Text>
+        <Text style={styles.textBar}>Amount</Text>
+      </View>
       <FlatList
         style={styles.scrollView}
         data={cases}
-        keyExtractor={(item, index) => item.title + ++index}
+        keyExtractor={(item, index) => item.case + ++index}
         renderItem={({ item, index }) => (
-          <Case
-            title={item.title + ++index}
-            description={item.description}
-            image={item.image}
+          <Donation
+            case={item.case + ++index}
+            amount={item.amount}
+            date={item.date}
           />
         )}
       />
       {/* </ScrollView> */}
-      <Nav />
-    </SafeAreaView>
+      {/* <Nav /> */}
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 10,
     flex: 1,
     backgroundColor: colors.dark,
   },
+  donationBar: {
+    marginTop: metrics.titleHeight / 3.5,
+    marginBottom: metrics.titleHeight / 3.5,
+    marginHorizontal: "5%",
+    paddingHorizontal: 10,
+    paddingVertical: 30,
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    borderBottomColor: colors.lightSoft,
+    borderBottomWidth: 1,
+  },
+  textBar: {
+    width: "30%",
+    fontSize: fonts.large,
+    color: colors.light,
+    textAlign: "center",
+  },
   scrollView: {
     // marginBottom: metrics.navHeight * 1.1,
-    marginTop: -metrics.titleHeight / 3.5,
   },
   text: {
     fontSize: fonts.xLarge,
@@ -60,35 +84,55 @@ const styles = StyleSheet.create({
 
 const cases = [
   {
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    title: "Case number ",
-    image: require("../assets/app.png"),
+    amount: "60",
+    case: "Case number ",
+    date: "Wed 4",
   },
   {
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    title: "Case number ",
-    image: require("../assets/app.png"),
+    amount: "50",
+    case: "Case number ",
+    date: "Fri 6",
   },
   {
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    title: "Case number ",
-    image: require("../assets/app.png"),
+    amount: "80",
+    case: "Case number ",
+    date: "Sat 7",
   },
   {
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    title: "Case number ",
-    image: require("../assets/app.png"),
+    amount: "60",
+    case: "Case number ",
+    date: "Mon 9",
   },
   {
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    title: "Case number ",
-    image: require("../assets/app.png"),
+    amount: "70",
+    case: "Case number ",
+    date: "Wed 11",
+  },
+  {
+    amount: "40",
+    case: "Case number ",
+    date: "Wed 18",
+  },
+  {
+    amount: "10",
+    case: "Case number ",
+    date: "Thu 19",
+  },
+  {
+    amount: "80",
+    case: "Case number ",
+    date: "Fri 20",
+  },
+  {
+    amount: "20",
+    case: "Case number ",
+    date: "Mon 23",
+  },
+  {
+    amount: "50",
+    case: "Case number ",
+    date: "Tue 24",
   },
 ];
 
-export default CasesListScreen;
+export default DonationsList;
