@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  Button,
-} from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 
 import colors from "../config/colors";
 import fonts from "../config/fonts";
@@ -33,12 +26,6 @@ export default function Case(props) {
       >
         <Text style={styles.btnText}>{isViewed ? "Clicked" : "View"}</Text>
       </TouchableOpacity>
-      {/* <Button
-        disabled={isViewed}
-        style={[styles.btn]}
-        title={isViewed ? "Clicked" : "View"}
-        onPress={() => (isViewed ? setIsViewed(false) : setIsViewed(true))}
-      /> */}
     </View>
   );
 }
@@ -54,7 +41,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     paddingVertical: 10,
     borderRadius: 5,
-    // borderWidth: 2,
   },
   btnText: {
     color: colors.light,
@@ -75,7 +61,8 @@ const styles = StyleSheet.create({
   description: {
     paddingTop: 30,
     color: colors.light,
-    fontSize: fonts.medium,
+    fontSize: fonts.small,
+    width: "100%",
   },
 
   image: {
