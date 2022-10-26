@@ -36,7 +36,7 @@
     "logkitty": "^0.7.1",
     "babel-jest": "~26.1.0",
     "jest": "~26.1.0",
-    "jest-expo": "^38.0.2",
+    "jest-expo": "^46.0.1",
     "react-test-renderer": "~16.13.1"
   },
   "jest": {
